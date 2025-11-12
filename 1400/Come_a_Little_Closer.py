@@ -1,5 +1,4 @@
 import sys
-import random
  
 class MinMax:
     def __init__(self, a, b):
