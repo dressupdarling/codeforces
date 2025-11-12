@@ -21,7 +21,7 @@ def main():
 
         pos = [0] * (n + 1)
         for i in range(n):
-            pos[p[i]] = i + 1  # 1-indexed like in the C++ code
+            pos[p[i]] = i + 1  
 
         ans = int(1e9)
 
