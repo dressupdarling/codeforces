@@ -27,7 +27,6 @@ def main():
             L = 0
             R = 0
             
-            # Right of pos
             for i in range(pos + 1, n):
                 curr += a[i]
                 mx = max(mx, curr)
@@ -35,7 +34,6 @@ def main():
  
             mx = 0
             curr = 0
-            # Left of pos
             for i in range(pos - 1, -1, -1):
                 curr += a[i]
                 mx = max(mx, curr)
