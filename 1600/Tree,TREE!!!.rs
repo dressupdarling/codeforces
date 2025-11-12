@@ -9,6 +9,8 @@ fn main() {
     let n: usize = it.next().unwrap().parse().unwrap();
     let m: usize = it.next().unwrap().parse().unwrap();
 
+  // Adjacency list
+    
     let mut adj_lst = vec![Vec::new; n+1];
      for _ in 0..n - 1 {
             let u: usize = it.next().unwrap().parse().unwrap();
