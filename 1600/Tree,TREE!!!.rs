@@ -7,19 +7,14 @@ fn main() {
 
   for case in 0..t {
     let n: usize = it.next().unwrap().parse().unwrap();
-    let m: usize = it.next().unwrap().parse().unwrap();
-
-  // Adjacency list
-    
-    let mut adj_lst = vec![Vec::new; n+1];
+    let m: usize = it.next().unwrap().parse().unwrap()'
+    let mut adj_lst = vec![Vec::new; n+1]; // Adjacency list
     for _ in 0..n - 1 {
             let u: usize = it.next().unwrap().parse().unwrap();
             let v: usize = it.next().unwrap().parse().unwrap();
             adj[u].push(v);
             adj[v].push(u);
         }
-
-
     print!("{}", out);
 }  
 
@@ -34,7 +29,6 @@ fn main() {
         let total = final_sum(&ans);
         out.push_str(&format!("{}\n", total));
     }
-
     print!("{}", out);
 }
 
