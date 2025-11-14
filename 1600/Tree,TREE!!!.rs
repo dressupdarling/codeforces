@@ -32,3 +32,40 @@ fn main() {
     print!("{}", out);
 }
 
+// DFS1: calc size parent/subtree
+fn dfs1(n: usize, adj: &Vec<Vec<usize>>) -> (Vec<usize>, Vec<usize>) {
+    let mut parent = vec![0usize; n + 1];
+    let mut sub = vec![1usize; n + 1];
+    let mut order = Vec::with_capacity(n);
+    let mut stack = vec![1usize];
+    parent[1] = 0;
+
+    while let Some(v) = stack.pop() {
+        order.push(v);
+        for &to in &adj[v] {
+            if to == parent[v] { continue; }
+            parent[to] = v;
+            stack.push(to);
+        }
+    }
+
+    for &v in order.iter().rev() {
+        for &to in &adj[v] {
+            if to == parent[v] { continue; }
+            sub[v] += sub[to];
+        }
+    }
+
+    (parent, sub)
+}
+
+//  calc f(root=1) = nodes nodes with sub[v] >= k
+fn compute_root(n: usize, k: usize, sub: &Vec<usize>) -> i64 {
+    let mut cnt = 0i64;
+    for v in 1..=n {
+        if sub[v] >= k {
+            cnt += 1;
+        }
+    }
+    cnt
+}
