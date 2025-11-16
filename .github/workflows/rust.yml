@@ -1,22 +1,29 @@
-name: Rust
+name: Rust CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
-
-env:
-  CARGO_TERM_COLOR: always
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+
+    - name: Build project
+      working-directory: ./codeforces
       run: cargo build --verbose
+
     - name: Run tests
+      working-directory: ./codeforces
       run: cargo test --verbose
