@@ -9,17 +9,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Install Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
 
-      - name: Compile Rust file
-        run: rustc path/to/your_file.rs -o my_program
+    - name: Compile Rust program
+      run: rustc codeforces/main.rs -o codeforces/my_program
 
-      - name: Run Rust program
-        run: ./my_program
+    - name: Run Rust program
+      run: ./codeforces/my_program
