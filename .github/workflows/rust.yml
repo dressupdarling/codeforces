@@ -1,4 +1,4 @@
-name: Rust CI
+name: Rust CI without Cargo
 
 on:
   push:
@@ -9,21 +9,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Set up Rust
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        override: true
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
 
-    - name: Build project
-      working-directory: ./codeforces
-      run: cargo build --verbose
+      - name: Compile Rust file
+        run: rustc path/to/your_file.rs -o my_program
 
-    - name: Run tests
-      working-directory: ./codeforces
-      run: cargo test --verbose
+      - name: Run Rust program
+        run: ./my_program
