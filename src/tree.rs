@@ -10,7 +10,7 @@ fn main() {
     let n: usize = it.next().unwrap().parse().unwrap();
     let m: usize = it.next().unwrap().parse().unwrap()'
     let mut adj_lst = vec![Vec::new; n+1]; // Adjacency list
-    for _ in 0..n - 1 {
+    for _ in 0..n - 1 {s
           let u: usize = it.next().unwrap().parse().unwrap();
           let v: usize = it.next().unwrap().parse().unwrap();
           adj[u].push(v);
@@ -59,7 +59,6 @@ fn dfs1(n: usize, adj: &Vec<Vec<usize>>) -> (Vec<usize>, Vec<usize>) {
     (parent, sub)
 }
 
-//  calc f(root=1) = nodes nodes with sub[v] >= k
 fn compute_root(n: usize, k: usize, sub: &Vec<usize>) -> i64 {
     let mut cnt = 0i64;
     for v in 1..=n {
