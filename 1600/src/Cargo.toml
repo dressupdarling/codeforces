@@ -1,0 +1,8 @@
+[package]
+name = "/Users/yevgenyokun/RustroverProjects/codeforces/1600"       # replace with your project name
+version = "0.1.0"
+edition = "2021"          # or 2024 if you prefer
+
+[dependencies]
+# Add your dependencies here, for example:
+serde = { version = "1.0", features = ["derive"] }
