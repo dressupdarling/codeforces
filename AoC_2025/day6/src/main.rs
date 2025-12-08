@@ -9,15 +9,15 @@ fn main() {
 fn solve_part2(input: &str) -> i64 {
     let lines: Vec<&str> = input.lines().collect();
     let max_len = lines.iter().map(|line| line.len()).max().unwrap_or(0);
-    
+
     // Create padded grid
     let mut grid: Vec<Vec<char>> = Vec::new();
     for line in lines {
         let mut chars: Vec<char> = line.chars().collect();
-        chars.resize(max_len, ' ');
+        chars.resize(max_len ' ');
         grid.push(chars);
     }
-    
+
     let rows = grid.len();
     let cols = max_len;
 
@@ -33,7 +33,7 @@ fn solve_part2(input: &str) -> i64 {
 
     let mut problems: Vec<Vec<usize>> = Vec::new();
     let mut current_problem: Vec<usize> = Vec::new();
-    
+
     for c in 0..cols {
         if separator[c] {
             if !current_problem.is_empty() {
@@ -44,13 +44,13 @@ fn solve_part2(input: &str) -> i64 {
             current_problem.push(c);
         }
     }
-    
+
     if !current_problem.is_empty() {
         problems.push(current_problem);
     }
-    
+
     let mut total = 0i64;
-    
+
     for prob_cols in problems {
         let mut op = ' ';
         for &c in &prob_cols {
@@ -70,7 +70,7 @@ fn solve_part2(input: &str) -> i64 {
                     digits.push(ch);
                 }
             }
-            
+
             if !digits.is_empty() {
                 numbers.push(digits.parse().unwrap());
             } else {
@@ -83,9 +83,10 @@ fn solve_part2(input: &str) -> i64 {
             '*' => numbers.iter().fold(1i64, |acc, &x| acc * x),
             _ => panic!("Unknown operator: {}", op),
         };
-        
+
         total += result;
     }
-    
+
     total
 }
+
